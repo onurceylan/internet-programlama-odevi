@@ -74,7 +74,35 @@
         <input type="text" name="soyisim" placeholder="Soyisim" required>
         <input type="text" name="okul_numarasi" placeholder="Okul Numarası" required>
         <button type="submit">Kaydet</button>
-    </form>
+    </form> 
+    <?php
+    try {
+    $stmt = $pdo->query("SELECT * FROM ogrenciler ORDER BY id DESC");
+    echo "<h2>Kayıtlı Öğrenciler</h2>";
+    echo "<table style='width: 100%; max-width: 800px; margin: 20px auto; border-collapse: collapse;'>";
+    echo "<thead>";
+    echo "<tr style='background-color: #f2f2f2;'>";
+    echo "<th style='padding: 12px; border: 1px solid #ddd; text-align: left;'>İsim</th>";
+    echo "<th style='padding: 12px; border: 1px solid #ddd; text-align: left;'>Soyisim</th>";
+    echo "<th style='padding: 12px; border: 1px solid #ddd; text-align: left;'>Okul Numarası</th>";
+    echo "</tr>";
+    echo "</thead>";
+    echo "<tbody>";
+    
+    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+        echo "<tr>";
+        echo "<td style='padding: 12px; border: 1px solid #ddd;'>" . htmlspecialchars($row['isim']) . "</td>";
+        echo "<td style='padding: 12px; border: 1px solid #ddd;'>" . htmlspecialchars($row['soyisim']) . "</td>";
+        echo "<td style='padding: 12px; border: 1px solid #ddd;'>" . htmlspecialchars($row['okul_numarasi']) . "</td>";
+        echo "</tr>";
+    }
+    
+    echo "</tbody>";
+    echo "</table>";
+} catch (PDOException $e) {
+    echo "<div class='message' style='color: red;'>Liste görüntülenirken hata oluştu: " . $e->getMessage() . "</div>";
+}
+?>
     <div class="message" id="message"></div>
 </body>
 </html>
