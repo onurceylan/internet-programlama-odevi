@@ -4,39 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form İşlemleri</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-        form {
-            max-width: 400px;
-            margin: auto;
-        }
-        input {
-            display: block;
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        button {
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-            border-radius: 4px;
-        }
-        button:hover {
-            background-color: #45a049;
-        }
-        .message {
-            margin-top: 20px;
-            font-weight: bold;
-        }
-    </style>
+    <link rel="stylesheet" href="app.css">
+    <script src="script.js"></script>
 </head>
 <body>
     <?php
